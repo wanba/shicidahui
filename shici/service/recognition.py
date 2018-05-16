@@ -18,7 +18,6 @@ import wave
 import os
 from aip import AipSpeech
 
-
 class Recognition:
     def __init__(self, config_info):
         self.baidu = config_info['baidu']

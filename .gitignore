@@ -3,4 +3,5 @@
 .idea/*.xml
 build
 dist
-qfund.egg-info
+shici.egg-info
+shici/__pycache__/

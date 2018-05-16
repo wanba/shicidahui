@@ -45,3 +45,6 @@ def version(**kwargs):
     from shici import version_info
     six.print_("Current Version: ", version_info)
 
+
+if __name__ == '__main__':
+    entry_point()

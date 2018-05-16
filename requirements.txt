@@ -3,6 +3,7 @@ setuptools>=39.1.0
 Werkzeug>=0.14.1
 flask_restful==0.3.6
 flask==0.12.2
+aip>=1.0.0.5
 baidu_aip>=2.2.3.0
 SQLAlchemy>=1.1.7
 PyMySQL>=0.7.9
