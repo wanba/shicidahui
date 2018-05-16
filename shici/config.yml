@@ -1,0 +1,19 @@
+api:
+  # api server 配置
+  port: 8000
+
+
+# datasource config
+database:
+  # shici database
+  shici:
+    host: localhost
+    user: wanshici
+    password: wanshici666
+    database: shici
+    charset: utf8
+
+baidu:
+  appId: shici123456789
+  apiKey: pRGdwAGqXgRYy3HKsYGKEcUm
+  secretKey: 222854bc140ab5f321a7d26f7c25f86d
