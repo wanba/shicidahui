@@ -33,7 +33,7 @@
 # limitations under the License.
 
 from os.path import dirname, join
-from pip.req import parse_requirements
+import pkutils
 
 from setuptools import (
     find_packages,
@@ -43,7 +43,8 @@ from setuptools import (
 with open(join(dirname(__file__), 'shici/VERSION.txt'), 'rb') as f:
     version = f.read().decode('ascii').strip()
 
-requirements = [str(ir.req) for ir in parse_requirements("requirements.txt", session=False)]
+requirements = list(pkutils.parse_requirements('requirements.txt'))
+dependencies = list(pkutils.parse_requirements('requirements.txt', True))
 
 
 setup(
@@ -57,6 +58,7 @@ setup(
     package_data={'': ['*.*']},
     url='http://',
     install_requires=requirements,
+    dependency_links=dependencies,
     zip_safe=False,
     entry_points={
         "console_scripts": [
