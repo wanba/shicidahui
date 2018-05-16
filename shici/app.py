@@ -25,19 +25,18 @@ from shici.service.recommand import Recommand
 from shici.utils import config
 
 app = Flask(__name__)
+config_info = config.user_config()
+app.config['UPLOAD_FOLDER'] = config.shici_file_path
+
+app.recommand = Recommand(config_info)
+app.recognition = Recognition(config_info)
+api = swagger.docs(Api(app), apiVersion='1.0')
+
+# urls
+api.add_resource(RecommandApi, '/shici/recommand')
+api.add_resource(SearchApi, '/shici/search')
+api.add_resource(RecognitionApi, '/shici/recognize')
+port = config_info['api']['port']
 
 if __name__ == '__main__':
-    config_info = config.user_config()
-    app.config['UPLOAD_FOLDER'] = config.shici_file_path
-
-    app.recommand = Recommand(config_info)
-    app.recognition = Recognition(config_info)
-    api = swagger.docs(Api(app), apiVersion='1.0')
-
-    # urls
-    api.add_resource(RecommandApi, '/shici/recommand')
-    api.add_resource(SearchApi, '/shici/search')
-    api.add_resource(RecognitionApi, '/shici/recognize')
-
-    port = config_info['api']['port']
-    app.run(host='0.0.0.0', port=port, debug=True, processes=8)
+    app.run(host='0.0.0.0', port=port, debug=True)
