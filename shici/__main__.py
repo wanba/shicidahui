@@ -42,6 +42,6 @@ def version(**kwargs):
     """
     Output Version Info
     """
-    from qfund import version_info
+    from shici import version_info
     six.print_("Current Version: ", version_info)
 
