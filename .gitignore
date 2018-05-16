@@ -1,3 +1,6 @@
-./cache
-./idea
-./idea/*.xml
+.cache
+.idea
+.idea/*.xml
+build
+dist
+qfund.egg-info
