@@ -20,9 +20,11 @@ from flask_restful_swagger import swagger
 
 from shici.api.recognition_resource import RecognitionApi
 from shici.api.recommand_resource import RecommandApi, SearchApi
+from shici.api.stats_resource import StatsApi
 from shici.service.recognition import Recognition
 from shici.service.recommand import Recommand
 from shici.utils import config
+
 
 app = Flask(__name__)
 config_info = config.user_config()
@@ -33,6 +35,7 @@ app.recognition = Recognition(config_info)
 api = swagger.docs(Api(app), apiVersion='1.0')
 
 # urls
+api.add_resource(StatsApi, '/stats')
 api.add_resource(RecommandApi, '/shici/recommand')
 api.add_resource(SearchApi, '/shici/search')
 api.add_resource(RecognitionApi, '/shici/recognize')
